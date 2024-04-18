@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:test_app/datamodel/daily_forecast.dart';
-import 'package:test_app/datamodel/hourly_forecast.dart';
-import 'package:test_app/ui/common/ui_helpers.dart';
+import 'package:google_weather_clone/datamodel/daily_forecast.dart';
+import 'package:google_weather_clone/datamodel/hourly_forecast.dart';
+import 'package:google_weather_clone/ui/common/ui_helpers.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 import 'dart:math' as math;
 
