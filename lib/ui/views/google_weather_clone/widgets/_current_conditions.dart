@@ -196,7 +196,7 @@ class _CurrentConditionItem extends StatelessWidget {
           Flexible(
             flex: 1,
             fit: FlexFit.tight,
-            child: _MinStartColumn(
+            child: MinStartColumn(
               children: [
                 Text(
                   title,

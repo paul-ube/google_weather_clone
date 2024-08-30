@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'ui/views/google_weather_clone.dart';
+import 'ui/views/google_weather_clone/google_weather_clone.dart';
 
 void main() {
   runApp(const MyApp());

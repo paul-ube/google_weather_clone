@@ -30,3 +30,14 @@ Color getSurfaceTint(BuildContext context, {double elevation = 1}) {
       Theme.of(context).colorScheme.surfaceTint,
       elevation);
 }
+
+Color getDisabledColor(BuildContext context,
+    {bool onDisabledContainer = false}) {
+  // Copied from material 3 specs
+  double opacity = 0.12;
+  if (onDisabledContainer) {
+    opacity = 0.38;
+  }
+
+  return Theme.of(context).colorScheme.onSurface.withOpacity(opacity);
+}

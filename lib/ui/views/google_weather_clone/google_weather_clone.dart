@@ -1,21 +1,20 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_weather_clone/datamodel/daily_forecast.dart';
 import 'package:google_weather_clone/datamodel/hourly_forecast.dart';
 import 'package:google_weather_clone/ui/common/ui_helpers.dart';
+import 'package:google_weather_clone/ui/widgets/atoms/horizontal_padding.dart';
+import 'package:google_weather_clone/ui/widgets/atoms/min_start_column.dart';
 import 'package:sliver_tools/sliver_tools.dart';
-import 'dart:math' as math;
 
-part 'widgets/_hourly_forecast.dart';
+part '../google_weather_clone/widgets/_current_conditions.dart';
 
-part 'widgets/_daily_forecast.dart';
+part '../google_weather_clone/widgets/_daily_forecast.dart';
 
-part 'widgets/_current_conditions.dart';
+part '../google_weather_clone/widgets/_hourly_forecast.dart';
 
-part 'widgets/_sunrise_and_sunset.dart';
-
-part 'widgets/_now.dart';
+part '../google_weather_clone/widgets/_now.dart';
 
 List _hourlyForecastDetails = <HourlyForecast>[
   HourlyForecast(temperature: '28', iconData: Icons.thunderstorm, time: 'Now'),
@@ -83,24 +82,29 @@ class _GoogleWeatherCloneState extends State<GoogleWeatherClone> {
     final textTheme = theme.textTheme;
     final colorScheme = theme.colorScheme;
     return Scaffold(
-        backgroundColor: colorScheme.secondaryContainer,
-        body: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              automaticallyImplyLeading: false,
-              clipBehavior: Clip.none,
-              shape: const StadiumBorder(),
-              scrolledUnderElevation: 0.0,
-              titleSpacing: 16,
-              backgroundColor: Colors.transparent,
-              floating: false,
-              title: SearchAnchor.bar(
-                barElevation: const MaterialStatePropertyAll(1),
-                barPadding: const MaterialStatePropertyAll(
+      backgroundColor: colorScheme.secondaryContainer,
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            automaticallyImplyLeading: false,
+            clipBehavior: Clip.none,
+            shape: const StadiumBorder(),
+            scrolledUnderElevation: 0.0,
+            titleSpacing: 16,
+            backgroundColor: Colors.transparent,
+            floating: false,
+            collapsedHeight: m3ToolbarHeight,
+            title: Padding(
+              padding: const EdgeInsets.only(top: 24),
+              child: SearchAnchor.bar(
+                barElevation: const WidgetStatePropertyAll(0),
+                barPadding: const WidgetStatePropertyAll(
                     EdgeInsets.fromLTRB(16, 0, 12, 0)),
                 barLeading: const Icon(Icons.location_on_outlined),
                 barHintText: 'Fujairah',
-                barHintStyle: MaterialStatePropertyAll(textTheme.titleLarge),
+                barHintStyle: WidgetStatePropertyAll(textTheme.titleLarge),
+                barBackgroundColor:
+                    WidgetStatePropertyAll(colorScheme.surfaceContainerLowest),
                 barTrailing: [
                   CircleAvatar(
                     backgroundColor: colorScheme.primaryContainer,
@@ -122,13 +126,16 @@ class _GoogleWeatherCloneState extends State<GoogleWeatherClone> {
                 },
               ),
             ),
-            const _Now(),
-            const _HourlyForecast(),
-            const _TenDayForecast(),
-            const _CurrentConditions(),
-            const _SunriseAndSunset(),
-          ],
-        ));
+          ),
+          const _Now(),
+          const _HourlyForecast(),
+          const _TenDayForecast(),
+          const _CurrentConditions(),
+          const SliverToBoxAdapter(child: vSpaceLarge),
+          // const _SunriseAndSunset(),
+        ],
+      ),
+    );
   }
 }
 
@@ -142,21 +149,6 @@ class _SectionHeader extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(kIndent, kIndent + 4, kIndent, 10),
       child: Text(title, style: Theme.of(context).textTheme.titleSmall),
-    );
-  }
-}
-
-class _MinStartColumn extends StatelessWidget {
-  const _MinStartColumn({super.key, required this.children});
-
-  final List<Widget> children;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: children,
     );
   }
 }
