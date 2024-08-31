@@ -1,8 +1,7 @@
-
-import 'hourly_forecast.dart';
 enum HourlyDetailType {
   precipitation, wind, humidity
 }
+
 class HourlyDetail {
   final String title;
   final String? subtitle;

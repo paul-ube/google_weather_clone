@@ -114,7 +114,7 @@ class _Controls extends StatelessWidget {
       child: Wrap(
           alignment: WrapAlignment.start,
           runSpacing: 6,
-          spacing: 6,
+          spacing: 8,
           children: controls.map((e) {
             return FilterChip(
               avatar: Icon(
@@ -122,6 +122,7 @@ class _Controls extends StatelessWidget {
                 weight: 600,
                 fill: e.iconData == Symbols.rainy ? 0 : 1,
               ),
+              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
               showCheckmark: false,
               selected: e == selectedControl,
               label: Text(e.title),
