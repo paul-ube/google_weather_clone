@@ -232,9 +232,15 @@ class _GoogleWeatherCloneState extends State<GoogleWeatherClone> {
                 barElevation: const WidgetStatePropertyAll(0),
                 barPadding: const WidgetStatePropertyAll(
                     EdgeInsets.fromLTRB(16, 0, 12, 0)),
-                barLeading: const Icon(Icons.location_on_outlined),
+                barLeading: Icon(
+                  Icons.location_on_outlined,
+                  color: colorScheme.onSurfaceVariant,
+                ),
                 barHintText: 'Fujairah',
-                barHintStyle: WidgetStatePropertyAll(textTheme.titleLarge),
+                barHintStyle: WidgetStatePropertyAll(
+                  textTheme.titleLarge?.apply(
+                      color: colorScheme.onSurfaceVariant, fontSizeDelta: -3),
+                ),
                 barBackgroundColor:
                     WidgetStatePropertyAll(colorScheme.surfaceContainerLowest),
                 barTrailing: [
