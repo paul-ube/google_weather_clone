@@ -97,6 +97,7 @@ class _Now extends StatelessWidget {
           'High: 37° · Low: 30°',
           style: textTheme.bodySmall?.apply(
             color: Theme.of(context).colorScheme.onSurfaceVariant,
+            fontWeightDelta: 1,
           ),
         )
       ],
@@ -117,6 +118,7 @@ class _Now extends StatelessWidget {
           'Feels like 44°',
           style: textTheme.bodySmall?.apply(
             color: Theme.of(context).colorScheme.onSurfaceVariant,
+            fontWeightDelta: 1,
           ),
         ),
       ],

@@ -17,6 +17,7 @@ dependencies:
   google_fonts: 6.2.1
   sliver_tools: 0.2.12
   dynamic_color: ^1.7.0
+  material_symbols_icons:
 
 dev_dependencies:
   flutter_test:

@@ -119,7 +119,7 @@ class _CurrentConditions extends StatelessWidget {
                     )
                   ],
                 ),
-                supportingIconDetail: _BodySmallText(
+                supportingIconDetail: AppBodySmall(
                   '0',
                 ),
               ),
@@ -146,7 +146,7 @@ class _CurrentConditions extends StatelessWidget {
                         )))
                   ],
                 ),
-                supportingIconDetail: _BodySmallText('Low   High'),
+                supportingIconDetail: AppBodySmall('Low   High'),
               ),
             ]),
           ),
@@ -213,7 +213,7 @@ class _CurrentConditionItem extends StatelessWidget {
                       )
                     ])),
                 vSpaceMicro,
-                _BodySmallText(detail)
+                AppBodySmall(detail)
               ],
             ),
           ),
@@ -224,9 +224,7 @@ class _CurrentConditionItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     if (supportingIconTitle != null)
-                      _BodySmallText(
-                        supportingIconTitle!,
-                      ),
+                      AppBodySmall(supportingIconTitle!),
                     supportingIcon,
                     supportingIconDetail ?? Container(),
                   ])),
